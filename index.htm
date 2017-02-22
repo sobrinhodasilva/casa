@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Font Awesome --> 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style>
+/* Estilo iOS */
+.switch__container {
+  margin: 5px auto;
+  width: 40px;
+}
+
+.switch {
+  visibility: hidden;
+  position: absolute;
+  margin-left: -9999px;
+}
+
+.switch + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.switch--shadow + label {
+  padding: 2px;
+  width: 40px;
+  height: 20px;
+  background-color: #dddddd;
+  border-radius: 20px;
+}
+.switch--shadow + label:before,
+.switch--shadow + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+.switch--shadow + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  transition: background 0.4s;
+}
+.switch--shadow + label:after {
+  width: 21px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+}
+.switch--shadow:checked + label:before {
+  background-color: #8ce196;
+}
+.switch--shadow:checked + label:after {
+  transform: translateX(20px);
+}
+
+/* Estilo Flat */
+.switch--flat + label {
+  padding: 2px;
+  width: 40px;
+  height: 20px;
+  background-color: #dddddd;
+  border-radius: 20px;
+  transition: background 0.4s;
+}
+.switch--flat + label:before,
+.switch--flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.switch--flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 20px;
+  transition: background 0.4s;
+}
+.switch--flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 36px;
+  background-color: #dddddd;
+  border-radius: 16px;
+  transition: margin 0.4s, background 0.4s;
+}
+.switch--flat:checked + label {
+  background-color: #8ce196;
+}
+.switch--flat:checked + label:after {
+  margin-left: 20px;
+  background-color: #8ce196;
+}
+
+#sensores{
+    text-align: center;
+    
+}
+
+/*Fundo */
+
+
+ body { 
+          background: url(img/sala.jpg) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+    }
+body >  div {
+    background-color: rgba(255,255,255,0);
+}
+
+/*Titulos*/
+
+.page-header{
+    color:#FFF;
+}
+.panel-body, .panel-body  div{
+    background-color: rgba(255,255,255,0.1)
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+  				<h1> <span class="glyphicon glyphicon-lamp" aria-hidden="true"></span>
+  					Casa do Robertinho 
+  					<small>ApInteligente</small>
+  				</h1>
+  				</div>
+			</div>
+				
+		</div>
+		
+		<!-- Sensores --> 
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-info">
+				     
+			  	<div class="panel-body" id="sensores">
+			  	    
+			  	    <div class="col-sm-3 col-xs-3">
+			   		     <p><i class="fa fa-thermometer-three-quarters fa-2x" aria-hidden="true"></i> 
+			   		   <span id="temperatura"></span>C</p>
+			   		</div>
+			   		<div class="col-sm-3 col-xs-3">  
+			   		   <p> <i class="fa fa-tint fa-2x" aria-hidden="true"></i>
+			   		    <span id="umidade"></span> % </p>
+			   		</div>
+			   		 
+			   		  
+			   		  <!-- Sensor de presensa -->
+			   		  <div class="col-sm-2 col-xs-2">
+			  	             <span id="presensa">
+			   		        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+			   		    </span>
+			        </div>
+			        
+			        <!-- GÁS / FUMAÇA -->
+			         <div class="col-sm-2 col-xs-2">
+			  	             <span id="gas">
+			   		            <i class="fa fa-fire fa-2x" aria-hidden="true"></i>
+			   		        </span>
+			        </div>
+			        <!-- Incendio -->
+			        <div class="col-sm-2 col-xs-2">
+			  	             <span id="fogo">
+			   		        <i class="fa fa-free-code-camp  fa-2x" aria-hidden="true"></i>
+			   		    </span>
+			        </div>
+			   		    
+			   	</div>
+			  </div>
+			</div>
+		</div>
+			
+		
+		
+	<!-- Automaçao Iluminaçao --> 	
+	<div class="row">
+	    
+	    <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6 col-xs-6">
+                        <h3 class="panel-title">Entrada</h3>
+                        </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow0" class="switch switch--shadow" type="checkbox" name="luz0">
+                            		  <label for="switch-shadow0"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                     
+                  </div>
+                 
+            </div>
+        </div>
+        
+        <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6  col-xs-6">
+                        <h3 class="panel-title">Cozinha</h3>
+                        </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadowC" class="switch switch--shadow" type="checkbox" name="cozinha">
+                            		  <label for="switch-shadowC"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                      <div class="row">
+                           <div class="col-sm-6  col-xs-6"><p>Balcão</p>
+                           </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container"> 
+                            		  <input id="switch-shadow1" class="switch switch--shadow" type="checkbox" name="luz1">
+                            		  <label for="switch-shadow1"></label>
+                                </div>
+                            </div>
+                      </div>
+                      <div class="row">
+                           <div class="col-sm-6  col-xs-6"><p>Centro</p>
+                           </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container"> 
+                            		  <input id="switch-shadow2" class="switch switch--shadow" type="checkbox" name="luz2">
+                            		  <label for="switch-shadow2"></label>
+                                </div>
+                            </div>
+                      </div>
+                      
+                      <p>Corredor</p>
+                      <p>Prateleiras</p>
+                  
+                     
+                  </div>
+                 
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6  col-xs-6">
+                        <h3 class="panel-title">Sala</h3>
+                        </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow3" class="switch switch--shadow" type="checkbox" name="luz3">
+                            		  <label for="switch-shadow3"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                     <p>Painel</p>
+                     <p>Mesa</p>
+                     <p>Sofa</p>
+                  </div>
+                 
+            </div>
+        </div>
+	
+	    
+	    <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6  col-xs-6">
+                        <h3 class="panel-title">Guarda Roupas</h3>
+                        </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow4" class="switch switch--shadow" type="checkbox" name="luz4">
+                            		  <label for="switch-shadow4"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                     
+                  </div>
+                 
+            </div>
+        </div>
+        
+        <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6  col-xs-6">
+                        <h3 class="panel-title">Mesa de Jantar</h3>
+                        </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow5" class="switch switch--shadow" type="checkbox" name="luz5">
+                            		  <label for="switch-shadow5"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                     
+                  </div>
+                 
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+    	    <div class="panel panel-primary">
+    	           <div class="panel-heading">
+    	               <div class="row">
+    	               <div class="col-sm-6  col-xs-6">
+                        <h3 class="panel-title">Varanda</h3>
+                        </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow6" class="switch switch--shadow" type="checkbox" name="luz6">
+                            		  <label for="switch-shadow6"></label>
+                            	</div>
+                        	</div>
+                    	</div>
+                     </div>
+                  <div class="panel-body">
+                     
+                  </div>
+                 
+            </div>
+        </div>
+	
+		
+
+    </div>
+    
+    
+    
+    
+	</div>
+	
+	</div>
+	</div>
+</body>
+	<script>
+	$( document ).ready(function() {
+	    
+	    	var endereco = "http://192.168.0.100"
+	    
+	    //busca sensores
+		function sensores(data){
+		     	$.getJSON( endereco, function( data ) {
+            		    $('#temperatura').text(data.sensores.temperatura);
+            		    $('#umidade').text(data.sensores.umidade);
+            		   $("#presensa").css("color",( data.sensores.presensa?"#5bc0de":"#000") );
+            		   
+            		  
+            		  var corGas;
+            		  var gas = data.sensores.gas;     
+            		       if (gas<=250){
+            		           corGas = '#000';
+            		           
+            		       }
+            		       if (gas > 250){
+            		           
+            		           corGas = '#5bc0de';
+            		           
+            		       }
+            		       if (gas > 280){
+            		           corGas = '#f0ad4e';//alerta
+            		       }
+            		       if (gas > 300){
+            		           
+            		           corGas = '#d9534f' ; // perigo
+            		       }
+            		   $("#gas").css("color",corGas);
+            		       
+            		   setTimeout(sensores, 2000);
+		     	});
+		 
+		}
+	
+	    //Função seta os botoes conforme o estado de cada luz 
+	    
+	    function estadoLuz(data){
+	        $.each(data.luzes, function(name, value){
+	            marca = (value==1)?true:false ; 
+	            $('input[name="'+name+'"]').prop('checked', marca);
+	            console.log(name +'=' +marca) 
+	        });
+	        
+	    }
+		
+	    sensores();
+		
+
+		//liga led 
+		$('input').change(function() {
+			nome =  $(this).attr('name');
+			//console.log(nome);
+			
+			// Ligar ou desligar
+			if ($(this).prop('checked')){ action = "On"}
+			else{action = "Off"}
+			
+			parametro = nome+action
+			
+			if (nome=="cozinha"){
+			    
+			    parametro = "luz1"+action +"luz2"+action
+			}
+				
+				$.getJSON( endereco+"/"+parametro, function( data ) {
+				    estadoLuz(data);		 
+				});
+		      
+		 })
+
+		 
+		
+	 })
+	</script>
+</html>
+
