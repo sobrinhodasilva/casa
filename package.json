@@ -1,0 +1,23 @@
+{
+  "name": "casa",
+  "version": "1.0.0",
+  "description": "Aplicativo para controlar dispositivos e sensores de casa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobrinhodasilva/casa.git"
+  },
+  "keywords": [
+    "iot",
+    "aws"
+  ],
+  "author": "Roberto Sobrinho da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sobrinhodasilva/casa/issues"
+  },
+  "homepage": "https://github.com/sobrinhodasilva/casa#readme"
+}
