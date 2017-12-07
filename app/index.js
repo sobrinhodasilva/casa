@@ -1,0 +1,5 @@
+//arquivo init
+
+function main () {
+
+}
