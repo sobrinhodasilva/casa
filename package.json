@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/sobrinhodasilva/casa/issues"
   },
-  "homepage": "https://github.com/sobrinhodasilva/casa#readme"
+  "homepage": "https://github.com/sobrinhodasilva/casa#readme",
+  "dependencies": {
+    "aws-iot-device-sdk": "^2.2.0"
+  }
 }
