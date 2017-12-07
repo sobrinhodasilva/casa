@@ -21,6 +21,18 @@
   },
   "homepage": "https://github.com/sobrinhodasilva/casa#readme",
   "dependencies": {
-    "aws-iot-device-sdk": "^2.2.0"
+    "aws-iot-device-sdk": "^2.2.0",
+    "babel-cli": "^6.26.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.9",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "gulp-webserver": "^0.9.1",
+    "jquery": "^3.2.1",
+    "run-sequence": "^2.2.0"
   }
 }
