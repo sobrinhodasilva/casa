@@ -11,9 +11,9 @@ gulp.task('deps.js', () => {
   //concatena em um unico arquivo  e envia para pasta public objetivo diminuir os tamanhos e quantidade de arquivos a serem
   // baixados pelo usuário final
   return gulp.src([
-    'node_modules/aws-iot-device-sdk/index.js',
+  //  'node_modules/aws-iot-device-sdk/index.js',
     'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/bootstrap/bootstrap.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
   ])
     .pipe(uglify())
     .pipe(concat('deps.min.js'))
@@ -22,7 +22,7 @@ gulp.task('deps.js', () => {
 
 gulp.task('deps.css', () => {
   return gulp.src([
-    'node_modules/bootstrap/bootstrap.css',
+    'node_modules/bootstrap/dist/css/bootstrap.css',
     'node_modules/font-awesome/css/font-awesome.min.css',
 
   ])
