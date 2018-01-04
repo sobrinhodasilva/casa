@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/assets/css/deps.min.css" />
       <link rel="stylesheet" href="/assets/css/app.min.css" />
-
+      <script src="bundle.js"></script>
 <style>
 
 </style>
@@ -69,29 +69,7 @@
 
 	<!-- Automaçao Iluminaçao -->
 	<div class="row">
-
-	    <div class="col-sm-4 col-xs-6">
-    	    <div class="panel panel-primary">
-    	           <div class="panel-heading">
-    	               <div class="row">
-    	               <div class="col-sm-6 col-xs-6">
-                        <h3 class="panel-title">Entrada</h3>
-                        </div>
-                            <div class="col-sm-6 col-xs-6">
-                                <div class="switch__container">
-                            		  <input id="switch-shadow0" class="switch switch--shadow" type="checkbox" name="luz0">
-                            		  <label for="switch-shadow0"></label>
-                            	</div>
-                        	</div>
-                    	</div>
-                     </div>
-                  <div class="panel-body">
-
-                  </div>
-
-            </div>
-        </div>
-
+<!-- COZINHA -->
         <div class="col-sm-4 col-xs-6">
     	    <div class="panel panel-primary">
     	           <div class="panel-heading">
@@ -113,7 +91,7 @@
                            </div>
                             <div class="col-sm-6  col-xs-6">
                                 <div class="switch__container">
-                            		  <input id="switch-shadow1" class="switch switch--shadow" type="checkbox" name="luz1">
+                            		  <input id="switch-shadow1" class="switch switch--shadow" type="checkbox" name="balcao">
                             		  <label for="switch-shadow1"></label>
                                 </div>
                             </div>
@@ -123,20 +101,40 @@
                            </div>
                             <div class="col-sm-6  col-xs-6">
                                 <div class="switch__container">
-                            		  <input id="switch-shadow2" class="switch switch--shadow" type="checkbox" name="luz2">
+                            		  <input id="switch-shadow2" class="switch switch--shadow" type="checkbox" name="centro">
                             		  <label for="switch-shadow2"></label>
                                 </div>
                             </div>
                       </div>
+                      <div class="row">
+                           <div class="col-sm-6  col-xs-6"><p>Corredor</p>
+                           </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow3" class="switch switch--shadow" type="checkbox" name="corredor">
+                            		  <label for="switch-shadow3"></label>
+                                </div>
+                            </div>
+                      </div>
+                      <div class="row">
+                           <div class="col-sm-6  col-xs-6"><p>Prateleiras</p>
+                           </div>
+                            <div class="col-sm-6  col-xs-6">
+                                <div class="switch__container">
+                            		  <input id="switch-shadow4" class="switch switch--shadow" type="checkbox" name="prateleiras">
+                            		  <label for="switch-shadow4"></label>
+                                </div>
+                            </div>
+                      </div>
 
-                      <p>Corredor</p>
-                      <p>Prateleiras</p>
 
 
                   </div>
 
             </div>
         </div>
+
+        <!-- SALA  -->
         <div class="col-sm-4 col-xs-6">
     	    <div class="panel panel-primary">
     	           <div class="panel-heading">
@@ -145,22 +143,70 @@
                         <h3 class="panel-title">Sala</h3>
                         </div>
                             <div class="col-sm-6  col-xs-6">
-                                <div class="switch__container">
-                            		  <input id="switch-shadow3" class="switch switch--shadow" type="checkbox" name="luz3">
-                            		  <label for="switch-shadow3"></label>
-                            	</div>
+                              <div class="switch__container">
+                                <input id="switch-shadow5" class="switch switch--shadow" type="checkbox" name="luz3">
+                                <label for="switch-shadow5"></label>
+                            </div>
                         	</div>
                     	</div>
                      </div>
                   <div class="panel-body">
-                     <p>Painel</p>
-                     <p>Mesa</p>
-                     <p>Sofa</p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <div class="row">
+                          <div class="col-sm-6  col-xs-6"><p>Painel</p>
+                          </div>
+                           <div class="col-sm-6  col-xs-6">
+                               <div class="switch__container">
+                                 <input id="switch-shadow6" class="switch switch--shadow" type="checkbox" name="luz2">
+                                 <label for="switch-shadow6"></label>
+                               </div>
+                           </div>
+                     </div>
+                     <div class="row">
+                          <div class="col-sm-6  col-xs-6"><p>Mesa</p>
+                          </div>
+                           <div class="col-sm-6  col-xs-6">
+                               <div class="switch__container">
+                                 <input id="switch-shadow7" class="switch switch--shadow" type="checkbox" name="luz2">
+                                 <label for="switch-shadow7"></label>
+                               </div>
+                           </div>
+                     </div>
+                     <div class="row">
+                          <div class="col-sm-6  col-xs-6"><p>Sofá/Cama</p>
+                          </div>
+                           <div class="col-sm-6  col-xs-6">
+                               <div class="switch__container">
+                                 <input id="switch-shadow8" class="switch switch--shadow" type="checkbox" name="luz2">
+                                 <label for="switch-shadow8"></label>
+                               </div>
+                           </div>
+                     </div>
+
                   </div>
 
             </div>
         </div>
+        <div class="col-sm-4 col-xs-6">
+            <div class="panel panel-primary">
+                   <div class="panel-heading">
+                       <div class="row">
+                       <div class="col-sm-6 col-xs-6">
+                          <h3 class="panel-title">Entrada</h3>
+                          </div>
+                              <div class="col-sm-6 col-xs-6">
+                                  <div class="switch__container">
+                                    <input id="switch-shadow0" class="switch switch--shadow" type="checkbox" name="luz0">
+                                    <label for="switch-shadow0"></label>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
 
+              </div>
+          </div>
 
 	    <div class="col-sm-4 col-xs-6">
     	    <div class="panel panel-primary">
@@ -171,15 +217,13 @@
                         </div>
                             <div class="col-sm-6  col-xs-6">
                                 <div class="switch__container">
-                            		  <input id="switch-shadow4" class="switch switch--shadow" type="checkbox" name="luz4">
-                            		  <label for="switch-shadow4"></label>
+                            		  <input id="switch-shadow9" class="switch switch--shadow" type="checkbox" name="luz4">
+                            		  <label for="switch-shadow9"></label>
                             	</div>
                         	</div>
                     	</div>
                      </div>
-                  <div class="panel-body">
 
-                  </div>
 
             </div>
         </div>
@@ -193,15 +237,13 @@
                         </div>
                             <div class="col-sm-6  col-xs-6">
                                 <div class="switch__container">
-                            		  <input id="switch-shadow5" class="switch switch--shadow" type="checkbox" name="luz5">
-                            		  <label for="switch-shadow5"></label>
+                            		  <input id="switch-shadow10" class="switch switch--shadow" type="checkbox" name="luz5">
+                            		  <label for="switch-shadow10"></label>
                             	</div>
                         	</div>
                     	</div>
                      </div>
-                  <div class="panel-body">
 
-                  </div>
 
             </div>
         </div>
@@ -214,15 +256,13 @@
                         </div>
                             <div class="col-sm-6  col-xs-6">
                                 <div class="switch__container">
-                            		  <input id="switch-shadow6" class="switch switch--shadow" type="checkbox" name="luz6">
-                            		  <label for="switch-shadow6"></label>
+                            		  <input id="switch-shadow11" class="switch switch--shadow" type="checkbox" name="luz6">
+                            		  <label for="switch-shadow11"></label>
                             	</div>
                         	</div>
                     	</div>
                      </div>
-                  <div class="panel-body">
 
-                  </div>
 
             </div>
         </div>

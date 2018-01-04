@@ -14,6 +14,11 @@ gulp.task('deps.js', () => {
   //  'node_modules/aws-iot-device-sdk/index.js',
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
+  //  'node_modules/aws-iot-device-sdk/gulpfile.js',
+  //  'node_modules/aws-iot-device-sdk/index.js',
+  //'node_modules/aws-iot-device-sdk/browser/index.js',
+  //'node_modules/aws-iot-device-sdk/browser/aws-iot-sdk-browser-bundle.js',
+  //'node_modules/aws-iot-device-sdk/browser/index.js'
   ])
     .pipe(uglify())
     .pipe(concat('deps.min.js'))
